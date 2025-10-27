@@ -1,0 +1,24 @@
+vocab_size: 131
+# seq_len: 121  # MiniHack-4-Rooms
+seq_len: 143  # MiniHack-Corridor
+num_puzzle_identifiers: 1
+action_space_size: 4
+# env_name: MiniHack-4-Rooms
+env_name: MiniHack-Corridor-Maze-4-Way-Dynamic
+env_kwargs:
+  # p-change-doors: 1e-16
+  action-space: ${dataset.action_space_size} 
+max_episode_steps: 80
+do_not_skip_running_model_if_random_action: ${use_last_hidden_state_to_seed_next_environment_step} # dependent on master value on cfg_dqn.yaml
+
+buffer_capacity: 1048576 # number of frames the buffer can hold
+frames_per_update: 256 # how many observations to return every time the collector is iterated over.
+data_collection_batch_size: 256 # how many observations to run in parallel that can fit in the policy for fast data collection
+training_batch_size: 256 # small as stochasticity is important for RL to avoid local minima (?)
+updates_per_data: 8  # how many batches sampled from buffer before sampling a new batch from collector
+num_workers: 5  # how many workers to fetch data from buffer
+ 
+# device for putting data collection
+env_device: cpu
+policy_device: cuda
+storing_device: cpu
