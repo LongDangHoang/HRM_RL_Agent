@@ -6,6 +6,8 @@ The Hierarchical Reasoning Model (HRM) has impressive reasoning abilities given 
 
 This paper presents HRM-Agent, a variant of HRM trained using only reinforcement learning. We show that HRM can learn to navigate to goals in dynamic and uncertain maze environments. Recent work suggests that HRM's reasoning abilities stem from its recurrent inference process. We explore the dynamics of the recurrent inference process and find evidence that it is successfully reusing computation from earlier environment time-steps.
 
+You can read the whole paper here: [Paper](https://arxiv.org/abs/2510.22832)
+
 # Code
 
 This code base is modified version of the original [HRM repo](https://github.com/sapientinc/HRM) and relies on CUDA 12.4 instead. The setup instruction in that repo has been incorporated into a Makefile in this code base, but aside from different dependencies on CUDA version, all other set up remains the same.
